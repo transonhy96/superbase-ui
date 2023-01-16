@@ -1,3 +1,4 @@
+
 <script lang="ts">
 	import { connect } from '@wagmi/core';
 	import { connectors } from '$lib/utils/wagmi';
@@ -8,13 +9,7 @@
 		}
 		await connect({ chainId: 1, connector: findConnector });
 	};
+
 </script>
 
-<svelte:head>
-	<title>Superbase</title>
-	<meta name="description" content="About this app" />
-</svelte:head>
-
-<div class="text-column">
-	<button on:click={connectWallet}>Connect</button>
-</div>
+<button class="btn rounded-3xl no-animation" on:click={connectWallet}> Connect wallet </button>
