@@ -1,7 +1,8 @@
 
 <script lang="ts">
 	import { connect } from '@wagmi/core';
-	import { connectors } from '$lib/utils/wagmi';
+  import { connectors } from "../../utils/wagmi";
+  import Button from "$lib/components/shareds/Button.svelte";
 	const connectWallet = async () => {
 		const findConnector = connectors.find((c) => c.id === 'metaMask');
 		if (!findConnector) {
@@ -12,4 +13,4 @@
 
 </script>
 
-<button class="btn rounded-3xl no-animation" on:click={connectWallet}> Connect wallet </button>
+<Button on:click={connectWallet}> Connect wallet </Button>

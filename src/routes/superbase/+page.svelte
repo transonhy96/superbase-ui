@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { connect } from '@wagmi/core';
-	import { connectors } from '$lib/utils/wagmi';
+	import { connectors } from "../../utils/wagmi";
 	const connectWallet = async () => {
 		const findConnector = connectors.find((c) => c.id === 'metaMask');
 		if (!findConnector) {

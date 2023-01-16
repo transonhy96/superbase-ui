@@ -10,7 +10,7 @@ import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect';
 import { CoinbaseWalletConnector } from '@wagmi/core/connectors/coinbaseWallet';
 import { LedgerConnector } from '@wagmi/core/connectors/ledger';
 import {jsonRpcProvider} from '@wagmi/core/providers/jsonRpc'
-import { CHAINS } from '$lib/configs/chains';
+import { CHAINS } from "../configs/chains";
 
 export const WAGMI_RECONNECT = true;
 

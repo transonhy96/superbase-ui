@@ -1,3 +1,3 @@
-<nav class="flex">
+<nav>
   Sidebar
 </nav>
