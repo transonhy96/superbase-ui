@@ -11,8 +11,9 @@ import { CoinbaseWalletConnector } from '@wagmi/core/connectors/coinbaseWallet';
 import { LedgerConnector } from '@wagmi/core/connectors/ledger';
 import {jsonRpcProvider} from '@wagmi/core/providers/jsonRpc'
 import { CHAINS } from "../configs/chains";
+import { WAGMI_RECONNECT } from '../configs';
 
-export const WAGMI_RECONNECT = true;
+
 
 export const { provider, chains } = configureChains(CHAINS, [
   jsonRpcProvider({
@@ -20,7 +21,7 @@ export const { provider, chains } = configureChains(CHAINS, [
       return { http: chain.rpcUrls.default.http[0] }
     },
   }),
-])
+]);
 
 export const injectedConnector = new InjectedConnector({
   chains,
@@ -28,7 +29,7 @@ export const injectedConnector = new InjectedConnector({
     shimDisconnect: false,
     shimChainChangedDisconnect: true,
   },
-})
+});
 
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
@@ -36,21 +37,21 @@ export const coinbaseConnector = new CoinbaseWalletConnector({
     appName: 'Oakland',
     appLogoUrl: '',
   },
-})
+});
 
 export const walletConnectConnector = new WalletConnectConnector({
   chains,
   options: {
     qrcode: true,
   },
-})
+});
 
 export const walletConnectNoQrCodeConnector = new WalletConnectConnector({
   chains,
   options: {
     qrcode: false,
   },
-})
+});
 
 export const metaMaskConnector = new MetaMaskConnector({
   chains,
@@ -58,12 +59,11 @@ export const metaMaskConnector = new MetaMaskConnector({
     shimDisconnect: false,
     shimChainChangedDisconnect: true,
   },
-})
-
+});
 
 const ledgerConnector = new LedgerConnector({
   chains,
-})
+});
 
 export const connectors =  [
   metaMaskConnector,

@@ -1,10 +1,16 @@
 <script>
 
-  import { client } from "../utils/wagmi";
+  import { client } from "../lib/utils/wagmi";
   import { onDestroy, onMount } from "svelte";
+	import { WAGMI_RECONNECT } from "../lib/configs";
+	import { updateAccount } from "$lib/services/account.service";
 
   onMount(async() => {
-    await client.autoConnect();
+		if(WAGMI_RECONNECT){
+			console.log('reconnect');
+			await client.autoConnect();
+			await updateAccount();
+		}
 	});
 
   onDestroy(()=>{
@@ -18,7 +24,6 @@
 </svelte:head>
 
 <div class="w-full bg-black">
-
 </div>
 
 

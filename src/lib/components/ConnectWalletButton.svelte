@@ -1,16 +1,25 @@
-
 <script lang="ts">
-	import { connect } from '@wagmi/core';
-  import { connectors } from "../../utils/wagmi";
-  import Button from "$lib/components/shareds/Button.svelte";
-	const connectWallet = async () => {
-		const findConnector = connectors.find((c) => c.id === 'metaMask');
-		if (!findConnector) {
-			throw new Error();
-		}
-		await connect({ chainId: 1, connector: findConnector });
-	};
+	import Button from '$lib/components/shareds/Button.svelte';
+	import { openModal } from "$lib/store/modal";
+	import { suppressAddress } from '$lib/utils/address';
+	import { accountStore } from "$lib/store/account";
 
+	const openModalClick = () => {
+		if($accountStore.isConnected){
+			openModal('ACCOUNT_DETAIL');
+		}
+		else{
+			openModal('CONNECT_WALLET');
+		}
+	};
 </script>
 
-<Button on:click={connectWallet}> Connect wallet </Button>
+<Button
+	on:click={openModalClick}
+>
+	{#if $accountStore.isConnected}
+		{suppressAddress($accountStore.address)}
+	{:else}
+		Connect wallet
+	{/if}
+</Button>

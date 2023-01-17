@@ -1,15 +1,7 @@
 <script>
 	import ConnectWalletButton from "./ConnectWalletButton.svelte";
-  import { getAccount } from "@wagmi/core";
-  import { suppressAddress } from "../../utils/address";
   import Button from "$lib/components/shareds/Button.svelte";
-  import { toggleModal } from "../../stores.js";
-
-  let {address} = getAccount();
-
-  const openModal = ()=>{
-    toggleModal()
-  }
+  import { openModal } from "$lib/store/modal";
 </script>
 
 <div class="navbar bg-base-100">
@@ -17,12 +9,7 @@
 		<a href="#top" class="btn btn-ghost normal-case text-xl">Superbase</a>
 	</div>
   <div class="flex gap-4">
-    <button class="btn rounded-3xl no-animation"> Network </button>
-    {#if address !== ''}
-      <Button on:click={openModal} >{suppressAddress(address)}</Button>
-    {:else}
-      <ConnectWalletButton/>
-    {/if}
-
+    <Button on:click={()=>{openModal('NETWORK')}} > Network </Button>
+    <ConnectWalletButton/>
   </div>
 </div>

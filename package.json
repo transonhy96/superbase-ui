@@ -24,6 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "autoprefixer": "^10.4.13",
+    "clsx": "^1.2.1",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte3": "^4.0.0",
@@ -42,6 +43,7 @@
   "type": "module",
   "dependencies": {
     "@wagmi/core": "^0.8.14",
+    "bignumber.js": "^9.1.1",
     "daisyui": "^2.46.1",
     "ethers": "^5.7.2",
     "lodash": "^4.17.21"

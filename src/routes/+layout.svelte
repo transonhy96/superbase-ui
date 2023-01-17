@@ -3,8 +3,10 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
-  import { alert , modals } from '../stores';
   import ConnectWalletModal from "$lib/components/ConnectWalletModal.svelte";
+	import AccountDetailModal from '$lib/components/AccountDetailModal.svelte';
+  import NetworkModal from "$lib/components/NetworkModal.svelte";
+
 </script>
 
 <div class="app">
@@ -14,10 +16,7 @@
     <slot />
   </div>
 	<Footer/>
-  {#if $alert}
-    <div>
-      <p>{ $alert }</p>
-    </div>
-  {/if}
+  <NetworkModal/>
   <ConnectWalletModal/>
+  <AccountDetailModal/>
 </div>
